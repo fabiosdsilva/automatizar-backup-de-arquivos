@@ -9,10 +9,10 @@ import fs from 'fs';
 
 export default async function copyFile(source: string[], dest: string) {
     try {
-        for (let i = 0; i < source.length; i++) {
-            await fs.copyFileSync(source[i], dest);
-            console.log(`File copied from ${source[i]} to ${dest}}`);
-        }
+        await source.forEach((file) =>{
+            fs.copyFileSync(file, dest);
+            console.log(`File copied from ${source} to ${dest}}`);
+        });
     } catch (error: any) {
         return error;
     }
