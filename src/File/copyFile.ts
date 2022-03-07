@@ -11,7 +11,7 @@ export default async function copyFile(source: string[], dest: string) {
     try {
         await source.forEach((file) =>{
             fs.copyFileSync(file, dest);
-            console.log(`File copied from ${source} to ${dest}}`);
+            console.log(`File copied from ${file} to ${dest}}`);
         });
     } catch (error: any) {
         return error;
