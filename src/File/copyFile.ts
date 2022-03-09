@@ -7,7 +7,15 @@ import fs from 'fs';
  * @returns Retorna uma mensagem de arquivo copiado.
  */
 
-export default async function copyFile(source: string[], dest: string) {
+async function copyFile(source: string, dest: string) {
+    try {
+       await fs.copyFileSync(source, dest);
+    } catch (error: any) {
+        return error;
+    }
+}
+
+async function copyFiles(source: string[], dest: string) {
     try {
         await source.forEach((file) =>{
             fs.copyFileSync(file, dest);
@@ -17,3 +25,9 @@ export default async function copyFile(source: string[], dest: string) {
         return error;
     }
 }
+
+export default {
+    copyFile,
+    copyFiles
+};
+
