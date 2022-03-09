@@ -26,7 +26,7 @@ async function copyFiles(source: string[], dest: string) {
     }
 }
 
-export default {
+export {
     copyFile,
     copyFiles
 };
