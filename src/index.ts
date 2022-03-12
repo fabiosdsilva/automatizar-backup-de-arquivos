@@ -16,8 +16,7 @@ export default async function index(source: string, dest: string) {
 
         // Salvar em arquivo json
         const obj = { user, fileDetails };
-        const a = await fs.writeFileSync('./Upload/file.json', JSON.stringify(obj));
-        return a;
+        const fileJson = await fs.writeFileSync('./Upload/file.json', JSON.stringify(obj));
     } catch (error) {
         return error;
     }
