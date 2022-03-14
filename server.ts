@@ -1,15 +1,21 @@
 import express, { Request, Response } from 'express';
 
+import index from './src';
+
 const app = express();
 
-// Use
 app.use(express.json());
 
-// Routes
-app.get('/', (req: Request, res: Response) =>{ res.send('Ok') });
+app.get('/', async (req: Request, res: Response) =>{
+    try {
+        await index('./txt.txt', './teste.txt');
 
+        return res.json({ message: ['OK'] });
+    } catch (error) {
+        return res.json(error);
+    }
+});
 
-// Runnig
 app.listen(8081, () =>{
     console.log('Server running');
 });
