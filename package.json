@@ -2,9 +2,10 @@
   "name": "automatizar-backup-de-arquivos",
   "version": "1.0.0",
   "description": "Este projeto serve de estudos das libs Fs e OS. Mas também irá me auxiliar no meu dia a dia, porque preciso realizar backup diariamente do banco de dados da empresa onde estou.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node-dev --respawn --transpile-only server.ts"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   "dependencies": {
     "express": "^4.17.3",
     "morgan": "^1.10.0",
+    "os": "^0.1.2",
     "winston": "^3.6.0"
   },
   "devDependencies": {
