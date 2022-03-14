@@ -1,3 +1,4 @@
+import { basename, join } from 'path';
 import fs from 'fs';
 
 /**
@@ -19,14 +20,13 @@ async function copyFiles(source: string[], dest: string) {
     const fileName: string[] = [];
 
     source.forEach(name => {
-        const lastBar = name.lastIndexOf('/');
-        fileName.push(name.slice(lastBar+1))
+        fileName.push(basename(name));
     });
 
     try {
-        await source.forEach((file) =>{
-            fileName.forEach(filename => {
-                fs.copyFileSync(file, dest+filename);
+        source.forEach( async (file) =>{
+            await fileName.forEach(filename => {
+                fs.copyFileSync(file, join(dest, filename));
                 console.log(`File copied from ${file} to ${dest}`);
             })
         });
