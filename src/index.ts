@@ -1,4 +1,3 @@
-// Iniciar as funções para copiar um arquivo e salvar os detalhes em um json
 import fs from 'fs';
 
 import getDetailsUser from './Os/getDetailsUser';
