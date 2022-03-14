@@ -12,7 +12,7 @@ async function writeFile(sourceFile: string, obj: TypeObject) {
         try {
             await fs.writeFileSync(sourceFile, JSON.stringify(obj));
         } catch (error) {
-            return error;
+            throw error;
         }
     }
 
@@ -20,7 +20,7 @@ async function writeFile(sourceFile: string, obj: TypeObject) {
         try {
             await fs.writeFileSync(sourceFile, obj);
         } catch (error) {
-            return error;
+            throw error;
         }
     }
 }
