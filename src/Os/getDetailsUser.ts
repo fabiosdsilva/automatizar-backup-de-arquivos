@@ -1,22 +1,12 @@
-import os from 'os';
+import { hostname, version, networkInterfaces }  from 'os';
+import IMac from '../types/interfaces';
 
 /**
  * 
  * @returns Retorna um objeto com informações do hostname, version do OS e o endereço mac.
  */
-interface IMac {
-    address: string,
-    netmask: string,
-    family: string,
-    mac: string,
-    internal: boolean,
-    cidr: string,
-    scopeid?: number
-}
 
 export default function userDetails() {
-    const { hostname, version, networkInterfaces } = os;
-
     const macAddress = networkInterfaces().Ethernet as IMac[];
     
     return {
@@ -25,6 +15,4 @@ export default function userDetails() {
         macAddress: macAddress[0].mac
     }
 }
-
-console.log(userDetails());
 
