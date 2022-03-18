@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, ipcMain as ipc } from 'electron';
 import { resolve } from 'path';
 
 async function createWindow() {
@@ -11,7 +11,19 @@ async function createWindow() {
         }
     });
 
-    win.loadFile(resolve(__dirname, 'index.html'));
+    win.loadFile('./electron/src/pages/login/index.html');
+
+    // Recebendo informações da tela de login
+    // Email e Password
+    ipc.on('set-email', (evendt, email) =>{
+        // Mostrar email digitado no terminal
+        console.log(email);
+    });
+
+    ipc.on('set-password', (evendt, password) =>{
+        // Mostrar senha digitado no terminal
+        console.log(password);
+    });
 }
 
 app.whenReady().then(() => {
