@@ -2,10 +2,11 @@
   "name": "automatizar-backup-de-arquivos",
   "version": "1.0.0",
   "description": "Este projeto serve de estudos das libs Fs e OS. Mas também irá me auxiliar no meu dia a dia, porque preciso realizar backup diariamente do banco de dados da empresa onde estou.",
-  "main": "server.js",
+  "main": "dist/electron/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node-dev --respawn --transpile-only server.ts"
+    "dev": "ts-node-dev --respawn --transpile-only server.ts",
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
