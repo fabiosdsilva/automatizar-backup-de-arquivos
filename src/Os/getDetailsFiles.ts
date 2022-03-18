@@ -8,8 +8,9 @@ import fs from 'fs';
 
 export default async function getDetailsFile(source: string) {
     try {
-        const stat = await fs.statSync(source);
-        return stat;
+        const {size, atime } = await fs.statSync(source);
+        const obj = { size, atime }
+        return obj;
 
     } catch (error: any) {
         return error;
